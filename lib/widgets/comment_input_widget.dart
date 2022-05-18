@@ -45,38 +45,40 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
         const SizedBox(
           width: 16,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text(
-              'Leanne Graham',
-              style: TextStyle(
-                color: Colors.blueGrey,
-              ),
-            ),
-            SizedBox(
-              width: 230,
-              height: 30,
-              child: TextFormField(
-                decoration: InputDecoration(
-                  hintText: 'leave a comment...',
-                  hintStyle: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                      fontFamily: 'Gilroy'),
-                  focusedBorder: const UnderlineInputBorder(
-                    borderSide: BorderSide(color: Colors.grey),
-                  ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const Text(
+                'Leanne Graham',
+                style: TextStyle(
+                  color: Colors.blueGrey,
                 ),
-                controller: widget.textController,
-                onSaved: (val) {
-                  setState(() {
-                    widget.textController.text = val.trim();
-                  });
-                },
               ),
-            )
-          ],
+              SizedBox(
+                width: 230,
+                height: 30,
+                child: TextFormField(
+                  decoration: InputDecoration(
+                    hintText: 'leave a comment...',
+                    hintStyle: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey[600],
+                        fontFamily: 'Gilroy'),
+                    focusedBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Colors.grey),
+                    ),
+                  ),
+                  controller: widget.textController,
+                  onSaved: (val) {
+                    setState(() {
+                      widget.textController.text = val.trim();
+                    });
+                  },
+                ),
+              )
+            ],
+          ),
         ),
         Padding(
           padding: const EdgeInsets.only(top: 10),

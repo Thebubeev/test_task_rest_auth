@@ -31,7 +31,7 @@ class _DiscriptionDialogPostWidgetState
       child: Form(
         key: _key,
         child: Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding: const EdgeInsets.all(10.0),
           child: Card(
               color: Theme.of(context).primaryColor,
               child: Column(children: [

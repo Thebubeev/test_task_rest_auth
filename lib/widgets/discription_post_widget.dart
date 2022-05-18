@@ -59,7 +59,7 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
     return Form(
       key: _key,
       child: Padding(
-        padding: const EdgeInsets.only(top: 8, bottom: 12),
+        padding: const EdgeInsets.only(top: 12, bottom: 12),
         child: Card(
           color: Theme.of(context).primaryColor,
           elevation: 0.6,
