@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/config/router.dart';
 import 'package:test_task_rest/models/user_model.dart';
 import 'package:test_task_rest/screens/user_profile_screen.dart';
 import 'package:test_task_rest/widgets/change_theme_widget.dart';
-
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-  final textDefaultTheme =
-      TextStyle(color: Theme.of(context).textSelectionTheme.selectionColor);
+    final textDefaultTheme =
+        TextStyle(color: Theme.of(context).textSelectionTheme.selectionColor);
     return Scaffold(
         backgroundColor: Theme.of(context).primaryColor,
         appBar: AppBar(
@@ -35,18 +35,16 @@ class HomeScreen extends StatelessWidget {
                     return ListTile(
                       title: Text(
                         users[index].name,
-                        style:textDefaultTheme,
+                        style: textDefaultTheme,
                       ),
-                      subtitle: Text(users[index].username,
-                          style: textDefaultTheme),
+                      subtitle:
+                          Text(users[index].username, style: textDefaultTheme),
                       trailing: Text(users[index].id.toString(),
                           style: textDefaultTheme),
                       onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (_) =>
-                                    UserProfileScreen(user: users[index])));
+                        Navigator.pushNamed(
+                            context, RouteGenerator.USER_PROFILE,
+                            arguments: users[index]);
                       },
                     );
                   }));

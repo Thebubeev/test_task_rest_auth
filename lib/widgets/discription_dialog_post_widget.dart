@@ -1,7 +1,5 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
-import 'package:test_task_rest/models/comment.dart';
 import 'package:test_task_rest/models/comment_model.dart';
 import 'package:test_task_rest/widgets/comment_input_widget.dart';
 import 'package:test_task_rest/widgets/comment_post_widget.dart';

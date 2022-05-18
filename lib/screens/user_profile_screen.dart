@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/config/router.dart';
 import 'package:test_task_rest/models/user_model.dart';
 import 'package:test_task_rest/screens/user_albums_screen.dart';
 import 'package:test_task_rest/screens/user_posts_screen.dart';
@@ -143,13 +144,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               SizedBox(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => UserPostScreen(
-                                  userpostid: widget.user.id,
-                                  user: widget.user,
-                                )));
+                    Navigator.pushNamed(context, RouteGenerator.USER_POSTS,
+                        arguments: {
+                          'user': widget.user,
+                          'userpostid': widget.user.id
+                        });
                   },
                   child: Card(
                     elevation: 2.0,
@@ -171,13 +170,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               SizedBox(
                 child: InkWell(
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => UserAlbumScreen(
-                                  useralbumid: widget.user.id,
-                                  user: widget.user,
-                                )));
+                    Navigator.pushNamed(context, RouteGenerator.USER_ALBUMS,
+                        arguments: {
+                          'useralbumid': widget.user.id,
+                          'user': widget.user
+                        });
                   },
                   child: Card(
                     elevation: 2.0,

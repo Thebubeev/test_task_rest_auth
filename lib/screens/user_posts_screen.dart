@@ -7,7 +7,7 @@ import 'package:test_task_rest/widgets/discription_post_widget.dart';
 class UserPostScreen extends StatelessWidget {
   final int userpostid;
   final User user;
-  const UserPostScreen({Key key, this.userpostid, this.user}) : super(key: key);
+  const UserPostScreen({Key key, @required this.userpostid,@required  this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

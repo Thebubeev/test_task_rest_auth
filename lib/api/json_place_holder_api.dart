@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 import 'package:test_task_rest/constants/constants.dart';
@@ -80,7 +79,8 @@ class JsonPlaceHolderApi {
           Constants.URL + Constants.POSTS + '/$postid',
         ),
         headers: {
-          'Content-Type': 'application/json; charset=UTF-8',},
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
         body: jsonEncode(comment.toJson()));
 
     Comment comments = Comment.fromJson(jsonDecode(responce.body));
