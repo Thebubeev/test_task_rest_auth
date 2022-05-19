@@ -44,9 +44,9 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
     super.initState();
 
     final text = widget.posts[widget.index].body;
-    if (text.length > 50) {
-      firstHalf = text.substring(0, 50);
-      secondHalf = text.substring(50, text.length);
+    if (text.length > 70) {
+      firstHalf = text.substring(0, 70);
+      secondHalf = text.substring(70, text.length);
     } else {
       firstHalf = text;
       secondHalf = "";
@@ -61,7 +61,7 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
       child: Padding(
         padding: const EdgeInsets.only(top: 12, bottom: 12),
         child: Card(
-          color: Theme.of(context).primaryColor,
+          color: Colors.white,
           elevation: 0.6,
           child: Column(children: [
             UserShortInfoWidget(
@@ -101,10 +101,10 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
                                 : (firstHalf + secondHalf)),
                             InkWell(
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 children: <Widget>[
                                   Text(
-                                    _flag ? "show more" : "show less",
+                                    _flag ? "Показать полностью..." : "",
                                     style: TextStyle(
                                         color: widget.textDefaultColor),
                                   ),

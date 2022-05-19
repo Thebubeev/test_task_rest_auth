@@ -1,27 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
-import 'package:test_task_rest/config/router.dart';
 import 'package:test_task_rest/models/user_model.dart';
-import 'package:test_task_rest/screens/user_profile_screen.dart';
-import 'package:test_task_rest/widgets/change_theme_widget.dart';
+import 'package:test_task_rest/router/router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final textDefaultTheme =
-        TextStyle(color: Theme.of(context).textSelectionTheme.selectionColor);
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           elevation: 0,
-          actions: [ChangeThemeidget()],
-          backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-          title: Text(
-            'My friends',
+          actions: [
+            InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Row(
+                children: const [
+                  Text(
+                    'Выйти',
+                    style: TextStyle(color: Colors.black),
+                  ),
+                  SizedBox(
+                    width: 8,
+                  ),
+                  Icon(
+                    Icons.exit_to_app,
+                    color: Colors.black,
+                  ),
+                  SizedBox(
+                    width: 5,
+                  ),
+                ],
+              ),
+            )
+          ],
+          backgroundColor: Colors.white,
+          title: const Text(
+            'Мои друзья',
             style: TextStyle(
-                color: Theme.of(context).textSelectionTheme.selectionColor),
+                color: Colors.black),
           ),
           centerTitle: true,
         ),
@@ -35,12 +56,10 @@ class HomeScreen extends StatelessWidget {
                     return ListTile(
                       title: Text(
                         users[index].name,
-                        style: textDefaultTheme,
+                        style: const TextStyle(color: Colors.black),
                       ),
-                      subtitle:
-                          Text(users[index].username, style: textDefaultTheme),
-                      trailing: Text(users[index].id.toString(),
-                          style: textDefaultTheme),
+                      subtitle: Text(users[index].username,
+                          style: const TextStyle(color: Colors.black)),
                       onTap: () {
                         Navigator.pushNamed(
                             context, RouteGenerator.USER_PROFILE,

@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
 import 'package:test_task_rest/models/albums_model.dart';
 import 'package:test_task_rest/models/user_model.dart';
-import 'package:test_task_rest/widgets/discription_album_widget.dart';
 
 class UserAlbumScreen extends StatelessWidget {
   final int useralbumid;
@@ -13,26 +12,23 @@ class UserAlbumScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textDefaultColor =
-        Theme.of(context).textSelectionTheme.selectionColor;
-
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios,
-                color: Theme.of(context).textSelectionTheme.selectionColor,
+                color: Colors.black,
               ),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            title: Text(
-              'Albums',
-              style: TextStyle(color: textDefaultColor),
+            backgroundColor: Colors.white,
+            title: const Text(
+              'Альбомы',
+              style: TextStyle(color: Colors.black),
             )),
         body: FutureBuilder<List<Albums>>(
           builder: ((context, snapshot) {

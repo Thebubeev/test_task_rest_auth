@@ -25,10 +25,8 @@ class UserShortInfoWidget extends StatelessWidget {
                   width: 70,
                   height: 70,
                   child: CachedNetworkImage(
-                    placeholder: (context, _) => CircularProgressIndicator(
-                        color: Theme.of(context)
-                            .textSelectionTheme
-                            .selectionColor),
+                    placeholder: (context, _) => const CircularProgressIndicator(
+                        color: Colors.black),
                     imageUrl:
                         'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                     fit: BoxFit.cover,

@@ -22,10 +22,8 @@ class CommentPostWidget extends StatelessWidget {
                     width: 30,
                     height: 30,
                     child: CachedNetworkImage(
-                      placeholder: (context, _) => CircularProgressIndicator(
-                          color: Theme.of(context)
-                              .textSelectionTheme
-                              .selectionColor),
+                      placeholder: (context, _) =>
+                          const CircularProgressIndicator(color: Colors.black),
                       imageUrl:
                           'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                       fit: BoxFit.cover,
@@ -49,9 +47,7 @@ class CommentPostWidget extends StatelessWidget {
                 ),
                 Text(
                   comment,
-                  style: TextStyle(
-                      color:
-                          Theme.of(context).textSelectionTheme.selectionColor),
+                  style: const TextStyle(color: Colors.black),
                 ),
               ],
             ),

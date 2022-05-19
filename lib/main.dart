@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:test_task_rest/config/router.dart';
-import 'package:test_task_rest/screens/home_screen.dart';
-import 'package:test_task_rest/config/theme_provider.dart';
+import 'package:test_task_rest/router/router.dart';
+import 'package:test_task_rest/screens/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,18 +12,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-        create: (_) => ThemeProvider(),
-        builder: (context, _) {
-          final themeProvider = Provider.of<ThemeProvider>(context);
-          return MaterialApp(
-            themeMode: themeProvider.themeMode,
-            onGenerateRoute: RouteGenerator.generateRoute,
-            theme: MyThemes.lightTheme,
-            darkTheme: MyThemes.darkTheme,
-            debugShowCheckedModeBanner: false,
-            home: const HomeScreen(),
-          );
-        });
+    return const MaterialApp(
+      onGenerateRoute: RouteGenerator.generateRoute,
+      debugShowCheckedModeBanner: false,
+      home: AuthScreen(),
+    );
   }
 }

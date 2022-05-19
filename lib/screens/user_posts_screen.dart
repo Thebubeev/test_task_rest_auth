@@ -7,30 +7,29 @@ import 'package:test_task_rest/widgets/discription_post_widget.dart';
 class UserPostScreen extends StatelessWidget {
   final int userpostid;
   final User user;
-  const UserPostScreen({Key key, @required this.userpostid,@required  this.user}) : super(key: key);
+  const UserPostScreen(
+      {Key key, @required this.userpostid, @required this.user})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final textDefaultColor =
-        Theme.of(context).textSelectionTheme.selectionColor;
-
     return Scaffold(
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor: Colors.white,
         appBar: AppBar(
             elevation: 0,
             leading: IconButton(
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back_ios,
-                color: Theme.of(context).textSelectionTheme.selectionColor,
+                color: Colors.black,
               ),
               onPressed: () {
                 Navigator.pop(context);
               },
             ),
-            backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-            title: Text(
-              'Posts',
-              style: TextStyle(color: textDefaultColor),
+            backgroundColor: Colors.white,
+            title: const Text(
+              'Посты',
+              style: TextStyle(color: Colors.black),
             )),
         body: FutureBuilder<List<Posts>>(
           builder: ((context, snapshot) {
@@ -45,7 +44,7 @@ class UserPostScreen extends StatelessWidget {
                           user: user,
                           index: index,
                           posts: posts,
-                          textDefaultColor: textDefaultColor);
+                          textDefaultColor: Colors.black);
                     } else {
                       return Container();
                     }

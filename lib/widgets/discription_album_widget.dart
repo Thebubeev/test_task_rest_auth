@@ -22,7 +22,7 @@ class DiscriptionAlbumWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Theme.of(context).primaryColor,
+      color: Colors.white,
       elevation: 0.6,
       child: Column(children: [
         Row(
@@ -37,10 +37,9 @@ class DiscriptionAlbumWidget extends StatelessWidget {
                       width: 70,
                       height: 70,
                       child: CachedNetworkImage(
-                        placeholder: (context, _) => CircularProgressIndicator(
-                            color: Theme.of(context)
-                                .textSelectionTheme
-                                .selectionColor),
+                        placeholder: (context, _) =>
+                            const CircularProgressIndicator(
+                                color: Colors.black),
                         imageUrl:
                             'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                         fit: BoxFit.cover,

@@ -1,9 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:test_task_rest/config/router.dart';
 import 'package:test_task_rest/models/user_model.dart';
-import 'package:test_task_rest/screens/user_albums_screen.dart';
-import 'package:test_task_rest/screens/user_posts_screen.dart';
+import 'package:test_task_rest/router/router.dart';
 import 'package:test_task_rest/widgets/user_widget.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -17,16 +15,14 @@ class UserProfileScreen extends StatefulWidget {
 class _UserProfileScreenState extends State<UserProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    final textDefaultTheme =
-        TextStyle(color: Theme.of(context).textSelectionTheme.selectionColor);
     return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
+      backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         leading: IconButton(
-          icon: Icon(
+          icon: const Icon(
             Icons.arrow_back_ios,
-            color: Theme.of(context).textSelectionTheme.selectionColor,
+            color: Colors.black,
           ),
           onPressed: () {
             Navigator.pop(context);
@@ -34,35 +30,34 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
         elevation: 0,
         actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
+          InkWell(
+            onTap: () {
+              Navigator.pushNamed(context, RouteGenerator.MAIN);
+            },
             child: Row(
-              children: [
-                const SizedBox(
-                  width: 20,
+              children: const [
+                Text(
+                  'Выйти',
+                  style: TextStyle(color: Colors.black),
+                ),
+                SizedBox(
+                  width: 8,
                 ),
                 Icon(
-                  Icons.call,
-                  color: Theme.of(context).iconTheme.color,
+                  Icons.exit_to_app,
+                  color: Colors.black,
                 ),
-                const SizedBox(
-                  width: 25,
+                SizedBox(
+                  width: 5,
                 ),
-                Icon(
-                  Icons.video_call,
-                  color: Theme.of(context).iconTheme.color,
-                ),
-                const SizedBox(
-                  width: 20,
-                )
               ],
             ),
           )
         ],
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+        backgroundColor: Colors.white,
         title: Text(
           widget.user.username,
-          style: textDefaultTheme,
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       body: Padding(
@@ -83,10 +78,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         height: 70,
                         child: CachedNetworkImage(
                           placeholder: (context, _) =>
-                              CircularProgressIndicator(
-                                  color: Theme.of(context)
-                                      .textSelectionTheme
-                                      .selectionColor),
+                              const CircularProgressIndicator(
+                                  color: Colors.black),
                           imageUrl:
                               'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                           fit: BoxFit.cover,
@@ -100,17 +93,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 children: [
                   Text(
                     widget.user.name,
-                    style: textDefaultTheme,
+                    style: const TextStyle(color: Colors.black),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 1, bottom: 1),
                     child: Text(
                       widget.user.company.catchPhrase,
-                      style: TextStyle(
-                          fontStyle: FontStyle.italic,
-                          color: Theme.of(context)
-                              .textSelectionTheme
-                              .selectionColor),
+                      style:const TextStyle(
+                          fontStyle: FontStyle.italic, color: Colors.black),
                     ),
                   ),
                   Row(
@@ -131,10 +121,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             ],
           ),
           discriptionCard(
-              Icons.home, 'City', widget.user.address.city, context),
+              Icons.home, 'Город', widget.user.address.city, context),
           discriptionCard(
               Icons.email_outlined, 'Email', widget.user.email, context),
-          userProfileInfo(context, textDefaultTheme, widget.user),
+          userProfileInfo(
+              context, const TextStyle(color: Colors.black), widget.user),
           const SizedBox(
             height: 5,
           ),
@@ -152,14 +143,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   },
                   child: Card(
                     elevation: 2.0,
-                    child: Column(children: [
-                      const SizedBox(
+                    child: Column(children: const [
+                      SizedBox(
                         height: 15,
                       ),
-                      const Icon(Icons.post_add),
+                      Icon(Icons.post_add),
                       Text(
-                        'Posts',
-                        style: textDefaultTheme,
+                        'Посты',
+                        style: TextStyle(color: Colors.black),
                       )
                     ]),
                   ),
@@ -178,14 +169,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   },
                   child: Card(
                     elevation: 2.0,
-                    child: Column(children: [
-                      const SizedBox(
+                    child: Column(children: const [
+                      SizedBox(
                         height: 15,
                       ),
-                      const Icon(Icons.photo_album_outlined),
+                      Icon(Icons.photo_album_outlined),
                       Text(
-                        'Albums',
-                        style: textDefaultTheme,
+                        'Альбомы',
+                        style: TextStyle(color: Colors.black),
                       )
                     ]),
                   ),

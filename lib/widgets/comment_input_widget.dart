@@ -33,10 +33,8 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
                   width: 30,
                   height: 30,
                   child: CachedNetworkImage(
-                    placeholder: (context, _) => CircularProgressIndicator(
-                        color: Theme.of(context)
-                            .textSelectionTheme
-                            .selectionColor),
+                    placeholder: (context, _) =>const CircularProgressIndicator(
+                        color: Colors.black),
                     imageUrl:
                         'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                     fit: BoxFit.cover,
@@ -60,7 +58,7 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
                 height: 30,
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: 'leave a comment...',
+                    hintText: 'Написать комментарий...',
                     hintStyle: TextStyle(
                         fontSize: 14,
                         color: Colors.grey[600],

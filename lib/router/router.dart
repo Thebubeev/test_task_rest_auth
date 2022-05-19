@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/screens/auth_screen.dart';
 import 'package:test_task_rest/screens/home_screen.dart';
 import 'package:test_task_rest/screens/user_albums_screen.dart';
 import 'package:test_task_rest/screens/user_posts_screen.dart';
@@ -6,6 +7,7 @@ import 'package:test_task_rest/screens/user_profile_screen.dart';
 
 class RouteGenerator {
   static const MAIN = '/';
+  static const HOME = 'home';
   static const USER_PROFILE = 'user_profile';
   static const USER_POSTS = 'user_posts';
   static const USER_ALBUMS = 'user_albums';
@@ -14,6 +16,9 @@ class RouteGenerator {
     final arg = settings.arguments;
     switch (settings.name) {
       case MAIN:
+        return MaterialPageRoute(builder: (_) => const AuthScreen());
+
+      case HOME:
         return MaterialPageRoute(builder: (_) => const HomeScreen());
 
       case USER_PROFILE:
@@ -27,15 +32,15 @@ class RouteGenerator {
         return MaterialPageRoute(
             builder: (_) => UserPostScreen(
                   user: args['user'],
-                  userpostid:  args['userpostid'],
+                  userpostid: args['userpostid'],
                 ));
 
-                case USER_ALBUMS:
+      case USER_ALBUMS:
         Map<String, Object> args = settings.arguments;
         return MaterialPageRoute(
             builder: (_) => UserAlbumScreen(
                   user: args['user'],
-                  useralbumid:  args['useralbumid'],
+                  useralbumid: args['useralbumid'],
                 ));
     }
     return MaterialPageRoute(builder: (_) => const HomeScreen());

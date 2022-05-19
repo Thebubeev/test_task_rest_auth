@@ -33,7 +33,7 @@ class _DiscriptionDialogPostWidgetState
         child: Padding(
           padding: const EdgeInsets.all(10.0),
           child: Card(
-              color: Theme.of(context).primaryColor,
+              color: Colors.white,
               child: Column(children: [
                 const SizedBox(
                   height: 8,
@@ -44,9 +44,9 @@ class _DiscriptionDialogPostWidgetState
                     UserShortInfoWidget(name: widget.name, widget: widget),
                     IconButton(
                         onPressed: (() => Navigator.pop(context)),
-                        icon: Icon(
+                        icon:const Icon(
                           Icons.close,
-                          color: Theme.of(context).iconTheme.color,
+                          color: Colors.black,
                         ))
                   ],
                 ),
@@ -55,10 +55,8 @@ class _DiscriptionDialogPostWidgetState
                   child: ListTile(
                     title: Text(
                       widget.post.title,
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .textSelectionTheme
-                              .selectionColor,
+                      style:const TextStyle(
+                          color: Colors.black,
                           fontSize: 19,
                           fontStyle: FontStyle.italic),
                     ),
