@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
 import 'package:test_task_rest/models/albums_model.dart';
@@ -37,20 +38,23 @@ class UserAlbumScreen extends StatelessWidget {
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
               var albums = snapshot.data;
-              return ListView.builder(
+              return GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                      maxCrossAxisExtent: 150,
+                      childAspectRatio: 1,
+                      crossAxisSpacing: 5,
+                      mainAxisSpacing: 5),
                   itemCount: albums.length,
-                  itemBuilder: ((context, index) {
-                    if (albums[index].id == useralbumid) {
-                      return DiscriptionAlbumWidget(
-                        useralbumid:useralbumid,
-                          index: index,
-                          user: user,
-                          albums: albums,
-                          textDefaultColor: textDefaultColor);
-                    } else {
-                      return Container();
-                    }
-                  }));
+                  itemBuilder: (BuildContext ctx, index) {
+                    return Container(
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: CachedNetworkImageProvider(
+                                  albums[index].url)),
+                          borderRadius: BorderRadius.circular(10)),
+                    );
+                  });
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
