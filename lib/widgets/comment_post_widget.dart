@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/constants/constants.dart';
 
 class CommentPostWidget extends StatelessWidget {
   final String name;
@@ -23,7 +24,9 @@ class CommentPostWidget extends StatelessWidget {
                     height: 30,
                     child: CachedNetworkImage(
                       placeholder: (context, _) =>
-                          const CircularProgressIndicator(color: Colors.black),
+                          const CircularProgressIndicator(
+                        color: Constants.themeColor,
+                      ),
                       imageUrl:
                           'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                       fit: BoxFit.cover,
@@ -39,7 +42,7 @@ class CommentPostWidget extends StatelessWidget {
                 Text(
                   name,
                   style: const TextStyle(
-                    color: Colors.blueGrey,
+                    color: Constants.themeColor,
                   ),
                 ),
                 const SizedBox(

@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/user_model.dart';
 import 'package:test_task_rest/router/router.dart';
 import 'package:test_task_rest/widgets/user_widget.dart';
@@ -61,11 +62,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(
-          bottom: 12,
-          left: 12,
-          right: 12,
-        ),
+        padding: const EdgeInsets.only(bottom: 12, left: 12, right: 12, top: 6),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           Row(
             children: [
@@ -79,7 +76,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         child: CachedNetworkImage(
                           placeholder: (context, _) =>
                               const CircularProgressIndicator(
-                                  color: Colors.black),
+                               color: Constants.themeColor,),
                           imageUrl:
                               'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                           fit: BoxFit.cover,
@@ -93,13 +90,13 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 children: [
                   Text(
                     widget.user.name,
-                    style: const TextStyle(color: Colors.black),
+                    style: const TextStyle(color: Constants.themeColor),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 1, bottom: 1),
                     child: Text(
                       widget.user.company.catchPhrase,
-                      style:const TextStyle(
+                      style: const TextStyle(
                           fontStyle: FontStyle.italic, color: Colors.black),
                     ),
                   ),
@@ -142,15 +139,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         });
                   },
                   child: Card(
+                    color: Constants.themeColor,
                     elevation: 2.0,
                     child: Column(children: const [
                       SizedBox(
                         height: 15,
                       ),
-                      Icon(Icons.post_add),
+                      Icon(
+                        Icons.post_add,
+                        color: Colors.white,
+                      ),
                       Text(
                         'Посты',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.white),
                       )
                     ]),
                   ),
@@ -168,15 +169,19 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         });
                   },
                   child: Card(
+                    color: Constants.themeColor,
                     elevation: 2.0,
                     child: Column(children: const [
                       SizedBox(
                         height: 15,
                       ),
-                      Icon(Icons.photo_album_outlined),
+                      Icon(
+                        Icons.photo_album_outlined,
+                        color: Colors.white,
+                      ),
                       Text(
                         'Альбомы',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Colors.white),
                       )
                     ]),
                   ),
@@ -185,7 +190,30 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 height: 90,
               ),
             ],
-          )
+          ),
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 45),
+              child: SizedBox(
+                width: 140,
+                height: 50,
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Colors.black,
+                  ),
+                  onPressed: () {
+                    Navigator.pushNamed(context, RouteGenerator.HOME);
+                  },
+                  child: const Center(
+                    child: Text(
+                      'Назад',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
         ]),
       ),
     );

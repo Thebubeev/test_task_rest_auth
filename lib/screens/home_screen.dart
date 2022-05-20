@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/user_model.dart';
 import 'package:test_task_rest/router/router.dart';
 
@@ -16,7 +17,7 @@ class HomeScreen extends StatelessWidget {
           actions: [
             InkWell(
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, RouteGenerator.MAIN);
               },
               child: Row(
                 children: const [
@@ -41,8 +42,7 @@ class HomeScreen extends StatelessWidget {
           backgroundColor: Colors.white,
           title: const Text(
             'Мои друзья',
-            style: TextStyle(
-                color: Colors.black),
+            style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
         ),
@@ -53,25 +53,36 @@ class HomeScreen extends StatelessWidget {
               return ListView.builder(
                   itemCount: users.length,
                   itemBuilder: ((context, index) {
-                    return ListTile(
-                      title: Text(
-                        users[index].name,
-                        style: const TextStyle(color: Colors.black),
+                    return Padding(
+                      padding: const EdgeInsets.all(4.0),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Container(
+                          color: Constants.themeColor,
+                          child: ListTile(
+                            title: Text(
+                              users[index].name,
+                              style: const TextStyle(color: Colors.white),
+                            ),
+                            subtitle: Text(users[index].username,
+                                style: const TextStyle(color: Colors.white)),
+                            trailing: Text('#' + users[index].id.toString(),
+                                style: const TextStyle(color: Colors.white)),
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, RouteGenerator.USER_PROFILE,
+                                  arguments: users[index]);
+                            },
+                          ),
+                        ),
                       ),
-                      subtitle: Text(users[index].username,
-                          style: const TextStyle(color: Colors.black)),
-                      onTap: () {
-                        Navigator.pushNamed(
-                            context, RouteGenerator.USER_PROFILE,
-                            arguments: users[index]);
-                      },
                     );
                   }));
             }
 
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(color: Constants.themeColor,),
               );
             }
             if (snapshot.hasError) {

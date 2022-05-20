@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/comment.dart';
 import 'package:test_task_rest/models/comment_model.dart';
 import 'package:test_task_rest/models/posts_model.dart';
@@ -9,6 +10,8 @@ import 'package:test_task_rest/widgets/comment_input_widget.dart';
 import 'package:test_task_rest/widgets/comment_post_widget.dart';
 import 'package:test_task_rest/widgets/discription_dialog_post_widget.dart';
 import 'package:test_task_rest/widgets/user_short_info_widget.dart';
+
+import '../router/router.dart';
 
 class DescriptionPostWidget extends StatefulWidget {
   const DescriptionPostWidget({
@@ -59,7 +62,7 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
     return Form(
       key: _key,
       child: Padding(
-        padding: const EdgeInsets.only(top: 12, bottom: 12),
+        padding: const EdgeInsets.only(top: 12, bottom: 12, left: 6),
         child: Card(
           color: Colors.white,
           elevation: 0.6,
@@ -105,8 +108,9 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
                                 children: <Widget>[
                                   Text(
                                     _flag ? "Показать полностью..." : "",
-                                    style: TextStyle(
-                                        color: widget.textDefaultColor),
+                                    style: const TextStyle(
+                                      color: Constants.themeColor,
+                                    ),
                                   ),
                                 ],
                               ),
@@ -148,7 +152,9 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
                 }
                 if (snapshot.connectionState == ConnectionState.waiting) {
                   return const Center(
-                    child: CircularProgressIndicator(),
+                    child: CircularProgressIndicator(
+                      color: Constants.themeColor,
+                    ),
                   );
                 }
                 if (snapshot.hasError) {
@@ -160,7 +166,7 @@ class _DescriptionPostWidgetState extends State<DescriptionPostWidget> {
               },
               future:
                   JsonPlaceHolderApi().fetchAllCommentsOfThePostData(post.id),
-            )
+            ),
           ]),
         ),
       ),

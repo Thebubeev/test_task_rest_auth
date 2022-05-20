@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/albums_model.dart';
 import 'package:test_task_rest/models/user_model.dart';
 
@@ -39,7 +40,7 @@ class DiscriptionAlbumWidget extends StatelessWidget {
                       child: CachedNetworkImage(
                         placeholder: (context, _) =>
                             const CircularProgressIndicator(
-                                color: Colors.black),
+                           color: Constants.themeColor,),
                         imageUrl:
                             'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                         fit: BoxFit.cover,

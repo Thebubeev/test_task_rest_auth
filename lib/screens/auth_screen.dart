@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/router/router.dart';
 
 class AuthScreen extends StatefulWidget {
@@ -12,8 +13,7 @@ class _AuthScreenState extends State<AuthScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[500],
-      //  backgroundColor: const Color.fromARGB(255, 102, 87, 161),
+      backgroundColor: Constants.themeColor,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Padding(
           padding: EdgeInsets.only(bottom: 50),

@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/comment.dart';
 
 import '../models/posts_model.dart';
@@ -33,8 +34,10 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
                   width: 30,
                   height: 30,
                   child: CachedNetworkImage(
-                    placeholder: (context, _) =>const CircularProgressIndicator(
-                        color: Colors.black),
+                    placeholder: (context, _) =>
+                        const CircularProgressIndicator(
+                      color: Constants.themeColor,
+                    ),
                     imageUrl:
                         'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                     fit: BoxFit.cover,
@@ -50,7 +53,7 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
               const Text(
                 'Leanne Graham',
                 style: TextStyle(
-                  color: Colors.blueGrey,
+                  color: Constants.themeColor,
                 ),
               ),
               SizedBox(
@@ -63,8 +66,11 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
                         fontSize: 14,
                         color: Colors.grey[600],
                         fontFamily: 'Gilroy'),
+                    enabledBorder: const UnderlineInputBorder(
+                      borderSide: BorderSide(color: Constants.themeColor),
+                    ),
                     focusedBorder: const UnderlineInputBorder(
-                      borderSide: BorderSide(color: Colors.grey),
+                      borderSide: BorderSide(color: Constants.themeColor),
                     ),
                   ),
                   controller: widget.textController,
@@ -79,7 +85,7 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.only(top: 10),
+          padding: const EdgeInsets.only(top: 15, right: 65),
           child: SizedBox(
               width: 30,
               height: 30,
@@ -98,6 +104,7 @@ class _CommentInputWidgetState extends State<CommentInputWidget> {
                   },
                   icon: const Icon(
                     Icons.send,
+                    color: Constants.themeColor,
                     size: 22,
                   ))),
         )

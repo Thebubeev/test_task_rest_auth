@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/albums_model.dart';
 import 'package:test_task_rest/models/user_model.dart';
 
@@ -25,6 +26,31 @@ class UserAlbumScreen extends StatelessWidget {
                 Navigator.pop(context);
               },
             ),
+            actions: [
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context);
+                },
+                child: Row(
+                  children: const [
+                    Text(
+                      'Выйти',
+                      style: TextStyle(color: Colors.black),
+                    ),
+                    SizedBox(
+                      width: 8,
+                    ),
+                    Icon(
+                      Icons.exit_to_app,
+                      color: Colors.black,
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                  ],
+                ),
+              )
+            ],
             backgroundColor: Colors.white,
             title: const Text(
               'Альбомы',
@@ -55,7 +81,9 @@ class UserAlbumScreen extends StatelessWidget {
 
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: CircularProgressIndicator(),
+                child: CircularProgressIndicator(
+                  color: Constants.themeColor,
+                ),
               );
             }
             if (snapshot.hasError) {

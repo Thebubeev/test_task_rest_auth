@@ -1,10 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:test_task_rest/constants/constants.dart';
 
 class UserShortInfoWidget extends StatelessWidget {
   final String name;
   const UserShortInfoWidget({
-   @required this.name,
+    @required this.name,
     Key key,
     @required this.widget,
   }) : super(key: key);
@@ -25,8 +26,8 @@ class UserShortInfoWidget extends StatelessWidget {
                   width: 70,
                   height: 70,
                   child: CachedNetworkImage(
-                    placeholder: (context, _) => const CircularProgressIndicator(
-                        color: Colors.black),
+                    placeholder: (context, _) =>
+                        const CircularProgressIndicator(color: Constants.themeColor,),
                     imageUrl:
                         'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                     fit: BoxFit.cover,
@@ -41,7 +42,7 @@ class UserShortInfoWidget extends StatelessWidget {
             Text(
               name,
               style: const TextStyle(
-                color: Colors.blueGrey,
+                color: Constants.themeColor,
               ),
             ),
             const SizedBox(

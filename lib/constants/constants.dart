@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Constants {
@@ -8,4 +7,5 @@ class Constants {
   static const String ALBUMS = '/photos';
   static const String COMMENTS = '/comments';
   static const TextStyle textDefaultText = TextStyle(color: Colors.white);
+  static const themeColor = Color.fromARGB(255, 102, 87, 161);
 }

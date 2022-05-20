@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_task_rest/api/json_place_holder_api.dart';
+import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/comment_model.dart';
 import 'package:test_task_rest/widgets/comment_input_widget.dart';
 import 'package:test_task_rest/widgets/comment_post_widget.dart';
@@ -96,7 +97,7 @@ class _DiscriptionDialogPostWidgetState
                     }
                     if (snapshot.connectionState == ConnectionState.waiting) {
                       return const Center(
-                        child: CircularProgressIndicator(),
+                        child: CircularProgressIndicator(color: Constants.themeColor,),
                       );
                     }
                     if (snapshot.hasError) {
