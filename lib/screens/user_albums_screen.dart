@@ -4,6 +4,7 @@ import 'package:test_task_rest/api/json_place_holder_api.dart';
 import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/albums_model.dart';
 import 'package:test_task_rest/models/user_model.dart';
+import 'package:test_task_rest/widgets/custom_app_bar_widget.dart';
 
 class UserAlbumScreen extends StatelessWidget {
   final int useralbumid;
@@ -15,47 +16,9 @@ class UserAlbumScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.white,
-        appBar: AppBar(
-            elevation: 0,
-            leading: IconButton(
-              icon: const Icon(
-                Icons.arrow_back_ios,
-                color: Colors.black,
-              ),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-            actions: [
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context);
-                },
-                child: Row(
-                  children: const [
-                    Text(
-                      'Выйти',
-                      style: TextStyle(color: Colors.black),
-                    ),
-                    SizedBox(
-                      width: 8,
-                    ),
-                    Icon(
-                      Icons.exit_to_app,
-                      color: Colors.black,
-                    ),
-                    SizedBox(
-                      width: 5,
-                    ),
-                  ],
-                ),
-              )
-            ],
-            backgroundColor: Colors.white,
-            title: const Text(
-              'Альбомы',
-              style: TextStyle(color: Colors.black),
-            )),
+        appBar: const CustomAppBar(
+          title: 'Альбомы',
+        ),
         body: FutureBuilder<List<Albums>>(
           builder: ((context, snapshot) {
             if (snapshot.hasData) {
@@ -98,3 +61,4 @@ class UserAlbumScreen extends StatelessWidget {
         ));
   }
 }
+

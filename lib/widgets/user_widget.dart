@@ -2,12 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/user_model.dart';
 
-ExpansionTile userProfileInfo(
-    BuildContext context, TextStyle textDefaultTheme, User user) {
+ExpansionTile userProfileInfo(BuildContext context, User user) {
   return ExpansionTile(
-    collapsedIconColor: Constants.themeColor,
-    iconColor: Constants.themeColor,
-    textColor: Constants.themeColor,
+    collapsedIconColor: const Color.fromARGB(255, 102, 87, 161),
+    iconColor: const Color.fromARGB(255, 102, 87, 161),
     children: [
       discriptionCard(Icons.phone, 'Телефон', user.phone, context),
       discriptionCard(Icons.web, 'Вебсайт', user.website, context),
@@ -18,7 +16,10 @@ ExpansionTile userProfileInfo(
       discriptionCard(Icons.home_work_outlined, 'Адрес',
           user.address.street + ' ' + user.address.suite, context),
     ],
-    title: Text("Дополнительная информация", style: textDefaultTheme),
+    title: const Text(
+      "Дополнительная информация",
+      style: TextStyle(color: Constants.themeColor),
+    ),
   );
 }
 

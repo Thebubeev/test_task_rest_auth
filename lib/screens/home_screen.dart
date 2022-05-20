@@ -40,10 +40,6 @@ class HomeScreen extends StatelessWidget {
             )
           ],
           backgroundColor: Colors.white,
-          title: const Text(
-            'Мои друзья',
-            style: TextStyle(color: Colors.black),
-          ),
           centerTitle: true,
         ),
         body: FutureBuilder<List<User>>(
@@ -82,7 +78,9 @@ class HomeScreen extends StatelessWidget {
 
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
-                child: CircularProgressIndicator(color: Constants.themeColor,),
+                child: CircularProgressIndicator(
+                  color: Constants.themeColor,
+                ),
               );
             }
             if (snapshot.hasError) {

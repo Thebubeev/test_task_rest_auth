@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:test_task_rest/constants/constants.dart';
 import 'package:test_task_rest/models/user_model.dart';
 import 'package:test_task_rest/router/router.dart';
+import 'package:test_task_rest/widgets/custom_app_bar_widget.dart';
 import 'package:test_task_rest/widgets/user_widget.dart';
 
 class UserProfileScreen extends StatefulWidget {
@@ -19,47 +20,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       resizeToAvoidBottomInset: false,
-      appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Colors.black,
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        elevation: 0,
-        actions: [
-          InkWell(
-            onTap: () {
-              Navigator.pushNamed(context, RouteGenerator.MAIN);
-            },
-            child: Row(
-              children: const [
-                Text(
-                  'Выйти',
-                  style: TextStyle(color: Colors.black),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Icon(
-                  Icons.exit_to_app,
-                  color: Colors.black,
-                ),
-                SizedBox(
-                  width: 5,
-                ),
-              ],
-            ),
-          )
-        ],
-        backgroundColor: Colors.white,
-        title: Text(
-          widget.user.username,
-          style: const TextStyle(color: Colors.black),
-        ),
+      appBar: CustomAppBar(
+        title: widget.user.username,
       ),
       body: Padding(
         padding: const EdgeInsets.only(bottom: 12, left: 12, right: 12, top: 6),
@@ -76,7 +38,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                         child: CachedNetworkImage(
                           placeholder: (context, _) =>
                               const CircularProgressIndicator(
-                               color: Constants.themeColor,),
+                            color: Constants.themeColor,
+                          ),
                           imageUrl:
                               'https://upload.wikimedia.org/wikipedia/commons/7/72/Default-welcomer.png',
                           fit: BoxFit.cover,
@@ -121,8 +84,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Icons.home, 'Город', widget.user.address.city, context),
           discriptionCard(
               Icons.email_outlined, 'Email', widget.user.email, context),
-          userProfileInfo(
-              context, const TextStyle(color: Colors.black), widget.user),
+          userProfileInfo(context, 
+              widget.user),
           const SizedBox(
             height: 5,
           ),
