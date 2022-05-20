@@ -84,8 +84,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
               Icons.home, 'Город', widget.user.address.city, context),
           discriptionCard(
               Icons.email_outlined, 'Email', widget.user.email, context),
-          userProfileInfo(context, 
-              widget.user),
+          userProfileInfo(context, widget.user),
           const SizedBox(
             height: 5,
           ),

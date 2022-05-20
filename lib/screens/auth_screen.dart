@@ -16,14 +16,15 @@ class _AuthScreenState extends State<AuthScreen> {
       backgroundColor: Constants.themeColor,
       body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
         const Padding(
-          padding: EdgeInsets.only(bottom: 50),
+          padding: EdgeInsets.only(bottom: 70),
           child: Text(
             'Авторизация',
             style: TextStyle(color: Colors.white, fontSize: 30),
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding:
+              const EdgeInsets.only(bottom: 16, top: 10, left: 12, right: 12),
           child: TextFormField(
             style: const TextStyle(color: Colors.white),
             initialValue: 'admin123',
@@ -41,7 +42,8 @@ class _AuthScreenState extends State<AuthScreen> {
           ),
         ),
         Padding(
-          padding: const EdgeInsets.all(12.0),
+          padding:
+              const EdgeInsets.only(bottom: 16, top: 10, left: 12, right: 12),
           child: TextFormField(
             style: const TextStyle(color: Colors.white),
             initialValue: 'password',
@@ -58,8 +60,11 @@ class _AuthScreenState extends State<AuthScreen> {
             ),
           ),
         ),
+        const SizedBox(
+          height: 15,
+        ),
         Padding(
-          padding: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.only(top: 70),
           child: SizedBox(
             width: 170,
             height: 60,
